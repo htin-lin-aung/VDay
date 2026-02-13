@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden; /* Keeps the page from scrolling */
+}
+
+/* Floating Hearts Background */
+.bg-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -10%;
+    color: rgba(255, 255, 255, 0.5);
+    animation: floatUp 10s linear infinite;
+    font-size: 20px;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+/* Main Card */
+.container {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px); /* Glass effect */
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 90%;
+    transition: all 0.3s ease;
+}
+
+.gif-container img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.header_text {
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    color: #d62828;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.sub_text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap on tiny screens */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 60px; /* Reserves space for growing button */
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    z-index: 2; /* Ensures Yes is always on top if they overlap */
+}
+
+#noBtn {
+    background-color: #fff;
+    color: #ff4d6d;
+    border: 2px solid #ff4d6d;
+}
+
+/* Success Screen Stuff */
+.hidden {
+    display: none;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(-5deg);
+}
+
+.gallery img:nth-child(2) {
+    transform: rotate(5deg);
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 400px) {
+    .header_text { font-size: 2.2rem; }
+    .container { padding: 20px; }
+    .buttons { gap: 10px; }
+}
